@@ -1,12 +1,13 @@
 class ContainsDuplicate:
-    def containsDuplicate(self, nums:[int])->bool:
+
+    def containsDuplicate(self, nums: [int]) -> bool:
         hashset = set()
-        for i in nums:
-            if i in hashset:
-                return False
-            hashset.add(i)
-        return True
+        for n in nums:
+            if n in hashset:
+                return True
+            hashset.add(n)
+        return False
 
 obj = ContainsDuplicate()
-print(obj.containsDuplicate([1,42,222,222,23]))
-print(obj.containsDuplicate([1,42,222,212,23]))
+print(obj.containsDuplicate([1, 42, 222, 222, 23]))
+print(obj.containsDuplicate([1, 42, 222, 212, 23]))
