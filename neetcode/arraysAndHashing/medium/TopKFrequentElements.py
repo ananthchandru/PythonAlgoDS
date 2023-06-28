@@ -1,3 +1,5 @@
+import collections
+
 class TopKFrequentElements:
 
     # n(log n) : sort the items and iterate and find  k frequent
@@ -25,11 +27,20 @@ class TopKFrequentElements:
         for n in nums:
             freq[n] = 1 + freq.get(n, 0)
         #sort map by values
-        freq = dict(sorted(freq.items(), key=lambda x: x[1], reverse=True))
-        res = [freq.keys()][:k]
+        freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+        print(type(freq.keys()))
 
-        return res
+        return None
+
+    def topKFreqShortCode(self, nums:[int], k: int)-> [int]:
+        if k==len(nums):
+            return nums
+        cmap = collections.Counter(nums)
+        #print(cmap)
+
+        return sorted(cmap.keys(), key = lambda x:cmap[x], reverse = True)[:k]
 
 obj = TopKFrequentElements()
-print(obj.freqElements([1,1,1,2,2,2,3,3,4], 2))
-print(obj.topKFrequent([1,1,1,2,2,2,3,3,4], 2))
+print(obj.freqElements([4,4,4,3,3,3,1,1,2], 2))
+print(obj.topKFrequent([4,4,4,3,3,3,1,1,2], 2))
+print(obj.topKFreqShortCode([4,4,4,3,3,3,1,1,2], 2))
