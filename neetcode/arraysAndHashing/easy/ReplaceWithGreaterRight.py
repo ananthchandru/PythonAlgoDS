@@ -8,6 +8,13 @@ class ReplaceWithGreaterRight:
             maxR = max(maxR,temp)
             
         return nums
+
+    def replaceElements(self, arr: [int]) -> [int]:
+        maxNum = -1
+        for i in range(len(arr) - 1, -1, -1):
+            arr[i], maxNum = maxNum, max(maxNum, arr[i])
+        return arr
         
 obj = ReplaceWithGreaterRight()
-print(obj.replace([1,2,3,4]))
+print(obj.replace([17,18,5,4,6,1]))
+print(obj.replaceElements([17,18,5,4,6,1]))

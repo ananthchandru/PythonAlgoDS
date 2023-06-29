@@ -15,10 +15,10 @@ class UniqueEmail:
             i = 0
             local = ""
             while(str[i] != "@"):
-                if(str[i]!="."):
-                    local += str[i]
                 if str[i] == "+":
                     break
+                if(str[i]!="."):
+                    local += str[i]
                 i+=1
                 
             if(str[i]=="+"):
